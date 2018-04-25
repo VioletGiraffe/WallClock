@@ -1,22 +1,27 @@
 #include <FastLED.h>
-#define DATA_PIN 19
+#include <MicroWidgets.h>
+#include <Painter_FastLED.hpp>
 
-constexpr auto NUM_LEDS = 64;
-CRGB leds[NUM_LEDS];
+constexpr auto DATA_PIN = 19;
+FastLedDisplayPainter<8, 8, DATA_PIN> painter;
 
-void setup() {
-  FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
-
-  for (auto i = 0; i < NUM_LEDS; ++i)
-     leds[i] = CRGB::Black;
+void setup()
+{
+	
+	// for (int dot = 0; dot < NUM_LEDS; ++dot)
+	// {
+	// 	hue[dot] = 240 * dot / NUM_LEDS;
+	// 	//leds[dot].setHSV(hue[dot], 255, 10);
+	// 	hue[dot] = CRGB::Black;
+	// 	FastLED.show();
+	// 	delay(20);
+	// }
 }
 
-void loop() {
-  for (int dot = 0; dot < NUM_LEDS; ++dot) { 
-      leds[dot].setRGB(255, 200, 0);
-      FastLED.show();
-      // clear this led for the next time around the loop
-      leds[dot] = CRGB::Black;
-      delay(30);
-  }
+void loop()
+{
+	// hue[0] += 1;
+	// leds[0].setHSV(hue[0], 255, 255);
+	// FastLED.show();
+	// delay(20);
 }
